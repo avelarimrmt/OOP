@@ -260,7 +260,14 @@ namespace UnitTestProject
         public void TryParseTestSpaces()
         {
             Rational result = new Rational();
-            var Success = Rational.TryParse("2 2", out result);
+            var Success = Rational.TryParse("2.2:5  ", out result);
+            Assert.IsFalse(Success);
+        }
+        [TestMethod]
+        public void TryParseTestSpaces1()
+        {
+            Rational result = new Rational();
+            var Success = Rational.TryParse("2  2", out result);
             Assert.IsFalse(Success);
         }
 
@@ -279,6 +286,13 @@ namespace UnitTestProject
             var num2 = 24;
             var result = Rational.FindNOD(num1, num2);
             Assert.AreEqual(12, result);
+        }
+        [TestMethod]
+        public void EnteringOtherCharacters()
+        {
+            Rational result = new Rational();
+            var Success = Rational.TryParse("adf", out result);
+            Assert.IsFalse(Success);
         }
     }
 }

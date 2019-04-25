@@ -24,8 +24,6 @@ namespace RationalNumCalculator
                 }
                 else
                     Console.WriteLine("Not enough data");
-
-                Console.ReadKey();
             }
         }
 
