@@ -1,0 +1,10 @@
+C:\Users\Great!\Documents\GitHub\OOP\ConsoleAppRationalNumbers\RationalNumCalculator\bin\Debug\RationalNumCalculator.exe.config
+C:\Users\Great!\Documents\GitHub\OOP\ConsoleAppRationalNumbers\RationalNumCalculator\bin\Debug\RationalNumCalculator.exe
+C:\Users\Great!\Documents\GitHub\OOP\ConsoleAppRationalNumbers\RationalNumCalculator\bin\Debug\RationalNumCalculator.pdb
+C:\Users\Great!\Documents\GitHub\OOP\ConsoleAppRationalNumbers\RationalNumCalculator\bin\Debug\CalcOperations.dll
+C:\Users\Great!\Documents\GitHub\OOP\ConsoleAppRationalNumbers\RationalNumCalculator\bin\Debug\CalcOperations.pdb
+C:\Users\Great!\Documents\GitHub\OOP\ConsoleAppRationalNumbers\RationalNumCalculator\bin\Debug\CalcOperations.dll.config
+C:\Users\Great!\Documents\GitHub\OOP\ConsoleAppRationalNumbers\RationalNumCalculator\obj\Debug\RationalNumCalculator.csprojResolveAssemblyReference.cache
+C:\Users\Great!\Documents\GitHub\OOP\ConsoleAppRationalNumbers\RationalNumCalculator\obj\Debug\RationalNumCalculator.csproj.CoreCompileInputs.cache
+C:\Users\Great!\Documents\GitHub\OOP\ConsoleAppRationalNumbers\RationalNumCalculator\obj\Debug\RationalNumCalculator.exe
+C:\Users\Great!\Documents\GitHub\OOP\ConsoleAppRationalNumbers\RationalNumCalculator\obj\Debug\RationalNumCalculator.pdb

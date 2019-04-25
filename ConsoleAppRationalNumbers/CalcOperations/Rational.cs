@@ -90,6 +90,7 @@ namespace CalcOperations
             if (!IsValid(input))
             {
                 result = new Rational();
+                Console.WriteLine("Invalid string");
                 return false;
             }
 

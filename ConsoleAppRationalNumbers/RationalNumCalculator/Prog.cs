@@ -7,30 +7,46 @@ namespace RationalNumCalculator
     {
         static void Main(string[] args)
         {
-            var operation = (Console.ReadLine());
-            var num1 = new Rational();
-            var num2 = num1;
-            Rational.TryParse(Console.ReadLine(), out num1);
-            Rational.TryParse(Console.ReadLine(), out num2);
+            while (true)
+            {
+                string sourceString = Console.ReadLine();
+                string[] separationBySpaces = sourceString.Split(' ');
 
+                if (separationBySpaces.Length == 3)
+                {
+                    var operation = separationBySpaces[0];
+                    var num1 = new Rational();
+                    var num2 = num1;
+                    Rational.TryParse(separationBySpaces[1], out num1);
+                    Rational.TryParse(separationBySpaces[2], out num2);
 
+                    OperationResult(operation, num1, num2);
+                }
+                else
+                    Console.WriteLine("Not enough data");
+
+                Console.ReadKey();
+            }
+        }
+
+        private static void OperationResult(string operation, Rational num1, Rational num2)
+        {
             switch (operation)
             {
                 case "add":
-                    var result = num1.Add(num2);
-                    Console.WriteLine(result);
+                    Console.WriteLine(num1.Add(num2));
                     break;
                 case "sub":
-                    result = num1.Sub(num2);
-                    Console.WriteLine(result);
+                    Console.WriteLine(num1.Sub(num2));
                     break;
                 case "mul":
-                    result = num1.Multiply(num2);
-                    Console.WriteLine(result);
+                    Console.WriteLine(num1.Multiply(num2));
                     break;
                 case "div":
-                    result = num1.DivideBy(num2);
-                    Console.WriteLine(result);
+                    Console.WriteLine(num1.DivideBy(num2));
+                    break;
+                default:
+                    Console.WriteLine("Incorrect operation entered");
                     break;
             }
         }

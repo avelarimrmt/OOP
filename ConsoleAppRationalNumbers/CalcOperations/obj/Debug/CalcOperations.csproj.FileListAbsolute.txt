@@ -5,3 +5,10 @@ C:\Users\Great!\source\repos\CalcOperations\bin\Debug\CalcOperations.pdb
 C:\Users\Great!\source\repos\CalcOperations\obj\Debug\CalcOperations.dll
 C:\Users\Great!\source\repos\CalcOperations\obj\Debug\CalcOperations.pdb
 C:\Users\Great!\source\repos\CalcOperations\obj\Debug\CalcOperations.csprojResolveAssemblyReference.cache
+C:\Users\Great!\Documents\GitHub\OOP\ConsoleAppRationalNumbers\CalcOperations\bin\Debug\CalcOperations.dll.config
+C:\Users\Great!\Documents\GitHub\OOP\ConsoleAppRationalNumbers\CalcOperations\bin\Debug\CalcOperations.dll
+C:\Users\Great!\Documents\GitHub\OOP\ConsoleAppRationalNumbers\CalcOperations\bin\Debug\CalcOperations.pdb
+C:\Users\Great!\Documents\GitHub\OOP\ConsoleAppRationalNumbers\CalcOperations\obj\Debug\CalcOperations.csprojResolveAssemblyReference.cache
+C:\Users\Great!\Documents\GitHub\OOP\ConsoleAppRationalNumbers\CalcOperations\obj\Debug\CalcOperations.csproj.CoreCompileInputs.cache
+C:\Users\Great!\Documents\GitHub\OOP\ConsoleAppRationalNumbers\CalcOperations\obj\Debug\CalcOperations.dll
+C:\Users\Great!\Documents\GitHub\OOP\ConsoleAppRationalNumbers\CalcOperations\obj\Debug\CalcOperations.pdb
