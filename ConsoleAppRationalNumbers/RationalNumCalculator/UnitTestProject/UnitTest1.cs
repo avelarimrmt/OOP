@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 using CalcOperations;
 
 namespace UnitTestProject
@@ -249,6 +250,15 @@ namespace UnitTestProject
             var Success = Rational.TryParse("2.2", out result);
             Assert.IsFalse(Success);
         }
+
+        [TestMethod]
+        public void TryParseTest16()
+        {
+            Rational result = new Rational();
+            var Success = Rational.TryParse("2.", out result);
+            Assert.IsFalse(Success);
+        }
+
         [TestMethod]
         public void TryParseTest13()
         {

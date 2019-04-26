@@ -126,10 +126,10 @@ namespace CalcOperations
         private static bool IsValid(string input)
         {
             var PartsOfFraction = input.Split(new char[] { '.', ':' }, StringSplitOptions.RemoveEmptyEntries);
-            return (IsValidInput(input) && PartsOfFraction.Length != 0 && IsValidOrderSeparators(input));
+            return (IsValidRow(input) && PartsOfFraction.Length != 0 && IsValidOrderSeparators(input) && IsValidInput(input));
         }
 
-        private static bool IsValidInput(string input)
+        private static bool IsValidRow(string input)
         {
             return input != null
                 && input.Length != 0
@@ -143,10 +143,19 @@ namespace CalcOperations
 
         private static bool IsValidOrderSeparators(string input)
         {
-            return (input.IndexOf('.') < input.IndexOf(':'));
+            return (input.IndexOf('.') <= input.IndexOf(':'));
         }
 
+        private static bool IsValidInput(string input)
+        {
+            foreach (char sym in input)
+            {
+                if (!(char.IsNumber(sym) || char.IsWhiteSpace(sym) || sym == ':' || sym == '.'))
+                    return false;
+            }
+            return true;
 
+        }
         public static int FindNOD(int num1, int num2)
         {
             while ((num1 != 0) && (num2 != 0))
