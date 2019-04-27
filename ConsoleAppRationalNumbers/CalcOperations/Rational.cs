@@ -87,7 +87,6 @@ namespace CalcOperations
         }
         public static bool TryParse(string input, out Rational result)
         {
-
             if (!IsValid(input))
             {
                 result = new Rational();
@@ -100,20 +99,18 @@ namespace CalcOperations
             int basePart = 0;
             int num = 0;
             int den = 1;
-
             if (PartsOfFraction.Length == 3)
             {
                 basePart = int.Parse(PartsOfFraction[0]);
                 num = int.Parse(PartsOfFraction[1]);
                 den = int.Parse(PartsOfFraction[2]);
             }
-            else
+            else 
             {
                 num = int.Parse(PartsOfFraction[0]);
                 if (PartsOfFraction.Length == 2)
                     den = int.Parse(PartsOfFraction[1]);
             }
-
             result = new Rational()
             {
                 Numerator = basePart * den + num,
@@ -121,6 +118,7 @@ namespace CalcOperations
             };
             result.Even();
             return true;
+
         }
 
         private static bool IsValid(string input)
