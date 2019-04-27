@@ -87,7 +87,6 @@ namespace CalcOperations
         }
         public static bool TryParse(string input, out Rational result)
         {
-
             if (!IsValid(input))
             {
                 result = new Rational();
@@ -100,20 +99,18 @@ namespace CalcOperations
             int basePart = 0;
             int num = 0;
             int den = 1;
-
             if (PartsOfFraction.Length == 3)
             {
                 basePart = int.Parse(PartsOfFraction[0]);
                 num = int.Parse(PartsOfFraction[1]);
                 den = int.Parse(PartsOfFraction[2]);
             }
-            else
+            else 
             {
                 num = int.Parse(PartsOfFraction[0]);
                 if (PartsOfFraction.Length == 2)
                     den = int.Parse(PartsOfFraction[1]);
             }
-
             result = new Rational()
             {
                 Numerator = basePart * den + num,
@@ -121,15 +118,16 @@ namespace CalcOperations
             };
             result.Even();
             return true;
+
         }
 
         private static bool IsValid(string input)
         {
             var PartsOfFraction = input.Split(new char[] { '.', ':' }, StringSplitOptions.RemoveEmptyEntries);
-            return (IsValidInput(input) && PartsOfFraction.Length != 0 && IsValidOrderSeparators(input));
+            return (IsValidRow(input) && PartsOfFraction.Length != 0 && IsValidOrderSeparators(input) && IsValidInput(input));
         }
 
-        private static bool IsValidInput(string input)
+        private static bool IsValidRow(string input)
         {
             return input != null
                 && input.Length != 0
@@ -143,10 +141,19 @@ namespace CalcOperations
 
         private static bool IsValidOrderSeparators(string input)
         {
-            return (input.IndexOf('.') < input.IndexOf(':'));
+            return (input.IndexOf('.') <= input.IndexOf(':'));
         }
 
+        private static bool IsValidInput(string input)
+        {
+            foreach (char sym in input)
+            {
+                if (!(char.IsNumber(sym) || char.IsWhiteSpace(sym) || sym == ':' || sym == '.'))
+                    return false;
+            }
+            return true;
 
+        }
         public static int FindNOD(int num1, int num2)
         {
             while ((num1 != 0) && (num2 != 0))
