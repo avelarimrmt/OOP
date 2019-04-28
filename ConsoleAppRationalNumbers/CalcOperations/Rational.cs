@@ -24,6 +24,9 @@ namespace CalcOperations
             }
         }
 
+        ///methods         
+        
+        ///operations
         public Rational Add(Rational c)
         {
             var result = new Rational()
@@ -66,24 +69,24 @@ namespace CalcOperations
             result.Even();
             return result;
         }
+
+        /// parse data
         public override string ToString()
         {
-            if (Fraction.Denominator == 1)
-            {
+            if (this.Denominator == 0)
+                return "Division by zero";
+
+            else if (Fraction.Denominator == 1)
                 return string.Format("{0}", this.Base);
-            }
+
             else if (Fraction.Numerator == 0)
-            {
                 return string.Format("0");
-            }
+
             else if (this.Base == 0)
-            {
                 return string.Format("{0}:{1}", Fraction.Numerator, Fraction.Denominator);
-            }
+
             else
-            {
                 return string.Format("{0}.{1}:{2}", this.Base, Fraction.Numerator, Fraction.Denominator);
-            }
         }
         public static bool TryParse(string input, out Rational result)
         {

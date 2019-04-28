@@ -18,3 +18,9 @@ C:\Users\masha\Documents\GitHub\OOP\ConsoleAppRationalNumbers\CalcOperations\bin
 C:\Users\masha\Documents\GitHub\OOP\ConsoleAppRationalNumbers\CalcOperations\obj\Debug\CalcOperations.csprojResolveAssemblyReference.cache
 C:\Users\masha\Documents\GitHub\OOP\ConsoleAppRationalNumbers\CalcOperations\obj\Debug\CalcOperations.dll
 C:\Users\masha\Documents\GitHub\OOP\ConsoleAppRationalNumbers\CalcOperations\obj\Debug\CalcOperations.pdb
+C:\Users\masha\Documents\Visual Studio 2015\Projects\OOP\ConsoleAppRationalNumbers\CalcOperations\bin\Debug\CalcOperations.dll.config
+C:\Users\masha\Documents\Visual Studio 2015\Projects\OOP\ConsoleAppRationalNumbers\CalcOperations\bin\Debug\CalcOperations.dll
+C:\Users\masha\Documents\Visual Studio 2015\Projects\OOP\ConsoleAppRationalNumbers\CalcOperations\bin\Debug\CalcOperations.pdb
+C:\Users\masha\Documents\Visual Studio 2015\Projects\OOP\ConsoleAppRationalNumbers\CalcOperations\obj\Debug\CalcOperations.csprojResolveAssemblyReference.cache
+C:\Users\masha\Documents\Visual Studio 2015\Projects\OOP\ConsoleAppRationalNumbers\CalcOperations\obj\Debug\CalcOperations.dll
+C:\Users\masha\Documents\Visual Studio 2015\Projects\OOP\ConsoleAppRationalNumbers\CalcOperations\obj\Debug\CalcOperations.pdb
