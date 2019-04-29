@@ -22,11 +22,10 @@ namespace CalcOperations
 
                 return result;
             }
-        }
-
-        ///methods         
+        }   
         
         ///operations
+        
         public Rational Add(Rational c)
         {
             var result = new Rational()
@@ -34,6 +33,7 @@ namespace CalcOperations
                 Numerator = this.Numerator * c.Denominator + this.Denominator * c.Numerator,
                 Denominator = this.Denominator * c.Denominator
             };
+
             result.Even();
             return result;
         }
@@ -56,6 +56,7 @@ namespace CalcOperations
                 Numerator = this.Numerator * x.Numerator,
                 Denominator = this.Denominator * x.Denominator
             };
+
             result.Even();
             return result;
         }
@@ -66,11 +67,11 @@ namespace CalcOperations
                 Numerator = this.Numerator * x.Denominator,
                 Denominator = this.Denominator * x.Numerator
             };
+
             result.Even();
             return result;
         }
 
-        /// parse data
         public override string ToString()
         {
             if (this.Denominator == 0)
@@ -88,12 +89,15 @@ namespace CalcOperations
             else
                 return string.Format("{0}.{1}:{2}", this.Base, Fraction.Numerator, Fraction.Denominator);
         }
+
+
+        /// parse data
+
         public static bool TryParse(string input, out Rational result)
         {
             if (!IsValid(input))
             {
                 result = new Rational();
-                Console.WriteLine("Invalid string");
                 return false;
             }
 
@@ -102,24 +106,29 @@ namespace CalcOperations
             int basePart = 0;
             int num = 0;
             int den = 1;
+
             if (PartsOfFraction.Length == 3)
             {
                 basePart = int.Parse(PartsOfFraction[0]);
                 num = int.Parse(PartsOfFraction[1]);
                 den = int.Parse(PartsOfFraction[2]);
             }
+
             else 
             {
                 num = int.Parse(PartsOfFraction[0]);
                 if (PartsOfFraction.Length == 2)
                     den = int.Parse(PartsOfFraction[1]);
             }
+
             result = new Rational()
             {
                 Numerator = basePart * den + num,
                 Denominator = den
             };
+
             result.Even();
+
             return true;
 
         }
@@ -127,10 +136,10 @@ namespace CalcOperations
         private static bool IsValid(string input)
         {
             var PartsOfFraction = input.Split(new char[] { '.', ':' }, StringSplitOptions.RemoveEmptyEntries);
-            return (IsValidRow(input) && PartsOfFraction.Length != 0 && IsValidOrderSeparators(input) && IsValidInput(input));
+            return (IsValidInput(input) && PartsOfFraction.Length != 0 && IsValidOrderSeparators(input) && IsValidInputCharacters(input));
         }
 
-        private static bool IsValidRow(string input)
+        private static bool IsValidInput(string input)
         {
             return input != null
                 && input.Length != 0
@@ -147,7 +156,7 @@ namespace CalcOperations
             return (input.IndexOf('.') <= input.IndexOf(':'));
         }
 
-        private static bool IsValidInput(string input)
+        private static bool IsValidInputCharacters(string input)
         {
             foreach (char sym in input)
             {
@@ -157,6 +166,8 @@ namespace CalcOperations
             return true;
 
         }
+
+
         public static int FindNOD(int num1, int num2)
         {
             while ((num1 != 0) && (num2 != 0))
@@ -173,8 +184,17 @@ namespace CalcOperations
         public void Even()
         {
             var rational = FindNOD(this.Numerator, this.Denominator);
-            this.Numerator /= rational;
-            this.Denominator /= rational;
+
+            try
+            {
+                this.Numerator /= rational;
+                this.Denominator /= rational;
+            }
+
+            catch (DivideByZeroException)
+            {
+                return;
+            }
         }
     }
 }
