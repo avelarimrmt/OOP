@@ -1,1 +1,0 @@
-C:\Users\masha\Documents\Visual Studio 2015\Projects\OOP\ConsoleAppRationalNumbers\RationalNumCalculator\ComlexNumCalculator\bin\Debug\ComlexNumCalculator.exe.config

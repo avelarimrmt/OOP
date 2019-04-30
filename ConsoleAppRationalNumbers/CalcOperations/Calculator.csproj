@@ -64,7 +64,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Complex.cs" />
-    <Compile Include="ExecuteOperation.cs" />
     <Compile Include="Rational.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

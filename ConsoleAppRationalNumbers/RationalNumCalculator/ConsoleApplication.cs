@@ -1,7 +1,7 @@
 ﻿using System;
 using Calculator;
 
-namespace Application
+namespace ConsoleApplication
 {
     class Program
     {
@@ -33,6 +33,7 @@ namespace Application
                     else
                     {
                         var operation = separationBySpaces[0];
+                        //ExecuteOperation.Rational(operation, num1, num2);
                         ExecuteOperation.Complex(operation, num1, num2);
                     }
                 }
