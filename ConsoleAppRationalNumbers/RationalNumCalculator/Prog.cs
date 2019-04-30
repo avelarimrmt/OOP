@@ -1,10 +1,19 @@
 ﻿using System;
 using CalcOperations;
+using System.Collections.Generic;
 
 namespace RationalNumCalculator
 {
     class Prog
     {
+        private static Dictionary<string, Func<Rational, Rational, Rational>> operations =
+        new Dictionary<string, Func<Rational, Rational, Rational>>
+        {
+        { "add", (x, y) => x.Add(y) },
+        { "sub", (x, y) => x.Sub(y) },
+        { "mul", (x, y) => x.Multiply(y) },
+        { "div", (x, y) => x.DivideBy(y) },
+        };
         static void Main(string[] args)
         {
             while (true)
@@ -12,46 +21,27 @@ namespace RationalNumCalculator
                 string sourceString = Console.ReadLine();
                 string[] separationBySpaces = sourceString.Split(' ');
 
-                if (separationBySpaces.Length == 3)
+                if (separationBySpaces.Length != 3)
                 {
-                    var operation = separationBySpaces[0];
-                    var num1 = new Rational();
-                    var num2 = num1;
-
-                    if (Rational.TryParse(separationBySpaces[1], out num1)
-                     && Rational.TryParse(separationBySpaces[2], out num2))
-
-                        OperationResult(operation, num1, num2);
-                    else
-                        Console.WriteLine("Invalid string");
-
+                    Console.WriteLine("Not enough data");
+                    return;
                 }
 
-                else
-                    Console.WriteLine("Not enough data");
+                var operation = separationBySpaces[0];
+
+                if (!Rational.TryParse(separationBySpaces[1], out Rational num1)
+                 && !Rational.TryParse(separationBySpaces[2], out Rational num2))
+                    Console.WriteLine("Invalid string");
+
+                OperationResult(operation, num1, num2);
+
             }
         }
-
-        private static void OperationResult(string operation, Rational num1, Rational num2)
+        private static void OperationResult(string op, Rational num1, Rational num2)
         {
-            switch (operation)
-            {
-                case "add":
-                    Console.WriteLine(num1.Add(num2));
-                    break;
-                case "sub":
-                    Console.WriteLine(num1.Sub(num2));
-                    break;
-                case "mul":
-                    Console.WriteLine(num1.Multiply(num2));
-                    break;
-                case "div":
-                    Console.WriteLine(num1.DivideBy(num2));
-                    break;
-                default:
-                    Console.WriteLine("Incorrect operation entered");
-                    break;
-            }
+            if (!operations.ContainsKey(op))
+                throw new ArgumentException(string.Format("Operation {0} is invalid", op), "op");
+            Console.WriteLine(operations[op](num1, num2));
         }
     }
 }
