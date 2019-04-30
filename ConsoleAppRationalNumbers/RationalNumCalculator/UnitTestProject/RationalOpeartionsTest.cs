@@ -1,12 +1,11 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-using CalcOperations;
+using Calculator;
 
 namespace UnitTestProject
 {
     [TestClass]
-    public class UnitTest1
+    public class RationalOpeartionsTest
     {
         [TestMethod]
         public void NumbersAreZero()

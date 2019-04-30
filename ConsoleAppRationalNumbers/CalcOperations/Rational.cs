@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CalcOperations
+namespace Calculator
 {
     public class Rational
     {

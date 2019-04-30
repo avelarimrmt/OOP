@@ -45,16 +45,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Prog.cs" />
+    <Compile Include="Application.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CalcOperations\CalcOperations.csproj">
+    <ProjectReference Include="..\CalcOperations\Calculator.csproj">
       <Project>{fdfac26a-d439-4163-96ef-303d67f6d8f2}</Project>
-      <Name>CalcOperations</Name>
+      <Name>Calculator</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

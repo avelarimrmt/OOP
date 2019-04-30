@@ -1,0 +1,1 @@
+C:\Users\masha\Documents\Visual Studio 2015\Projects\OOP\ConsoleAppRationalNumbers\RationalNumCalculator\UnitTestProject1\obj\Debug\UnitTestProject1.csprojResolveAssemblyReference.cache

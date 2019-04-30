@@ -51,16 +51,16 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="RationalOpeartionsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\CalcOperations\CalcOperations.csproj">
+    <ProjectReference Include="..\..\CalcOperations\Calculator.csproj">
       <Project>{fdfac26a-d439-4163-96ef-303d67f6d8f2}</Project>
-      <Name>CalcOperations</Name>
+      <Name>Calculator</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
