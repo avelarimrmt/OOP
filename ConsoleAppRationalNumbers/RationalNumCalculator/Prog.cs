@@ -24,17 +24,21 @@ namespace RationalNumCalculator
                 if (separationBySpaces.Length != 3)
                 {
                     Console.WriteLine("Not enough data");
-                    return;
+                    continue;
                 }
 
                 var operation = separationBySpaces[0];
 
-                if (!Rational.TryParse(separationBySpaces[1], out Rational num1)
-                 && !Rational.TryParse(separationBySpaces[2], out Rational num2))
+                var num1 = new Rational();
+                var num2 = num1;
+                if (!Rational.TryParse(separationBySpaces[1], out num1)
+                    || !Rational.TryParse(separationBySpaces[2], out num2))
+                {
                     Console.WriteLine("Invalid string");
+                    continue;
+                }
 
                 OperationResult(operation, num1, num2);
-
             }
         }
         private static void OperationResult(string op, Rational num1, Rational num2)

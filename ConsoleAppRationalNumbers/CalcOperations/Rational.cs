@@ -164,10 +164,7 @@ namespace CalcOperations
                     return false;
             }
             return true;
-
         }
-
-
         public static int FindNOD(int num1, int num2)
         {
             while ((num1 != 0) && (num2 != 0))
