@@ -22,25 +22,22 @@ namespace RationalNumCalculator
                 string[] separationBySpaces = sourceString.Split(' ');
 
                 if (separationBySpaces.Length != 3)
-                {
                     Console.WriteLine("Not enough data");
-                    continue;
-                }
-
-                var operation = separationBySpaces[0];
-
-                var num1 = new Rational();
-                var num2 = num1;
-                if (!Rational.TryParse(separationBySpaces[1], out num1)
-                    || !Rational.TryParse(separationBySpaces[2], out num2))
+                else
                 {
-                    Console.WriteLine("Invalid string");
-                    continue;
+                    Rational num1, num2;
+                    if (!Rational.TryParse(separationBySpaces[1], out num1)
+                                || !Rational.TryParse(separationBySpaces[2], out num2))
+                        Console.WriteLine("Invalid string");
+                    else
+                    {
+                        var operation = separationBySpaces[0];
+                        OperationResult(operation, num1, num2);
+                    }
                 }
-
-                OperationResult(operation, num1, num2);
             }
         }
+
         private static void OperationResult(string op, Rational num1, Rational num2)
         {
             if (!operations.ContainsKey(op))
