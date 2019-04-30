@@ -1,3 +1,4 @@
 C:\Users\masha\Documents\Visual Studio 2015\Projects\OOP\ConsoleAppRationalNumbers\RationalNumCalculator\obj\Debug\Application.csprojResolveAssemblyReference.cache
 C:\Users\masha\Documents\Visual Studio 2015\Projects\OOP\ConsoleAppRationalNumbers\RationalNumCalculator\obj\Debug\RationalNumCalculator.exe
 C:\Users\masha\Documents\Visual Studio 2015\Projects\OOP\ConsoleAppRationalNumbers\RationalNumCalculator\obj\Debug\RationalNumCalculator.pdb
+C:\Users\masha\Documents\Visual Studio 2015\Projects\OOP\ConsoleAppRationalNumbers\RationalNumCalculator\bin\Debug\RationalNumCalculator.exe.config
