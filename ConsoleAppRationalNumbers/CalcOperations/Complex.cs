@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Calculator
 {
@@ -58,16 +55,43 @@ namespace Calculator
         {
             return "";
         }
-        /// Создание экземпляра комплексного числа
-        /// из строкового  представления R+Ii (см. ToString())
-        /// Строковое представление комплексного числа
-        /// Результат конвертации из строкогого представления
-        /// true, если удалось сконвертировать строковое представление в
-        /// комплексное число, false в случае несоответствия формату
+
+
+        //Считается ли корректным ввод - add 3+3+5i 4
+        //4i+5
+        //3+5i+i
+        
+            //upd: все хуйня
+
         public static bool TryParse(string input, out Complex result)
         {
             result = new Complex();
-            return true;
+
+            return (IsValidInput(input) 
+                && NumberOfValidCharacters(input));
+            
+        }
+
+        //rename this method
+        private static bool NumberOfValidCharacters(string input)
+        {
+            return input.IndexOf('+') == input.LastIndexOf('+')
+                && input.IndexOf('i') == input.LastIndexOf('i')
+                && input.IndexOf('-') == input.LastIndexOf('-');
+        }
+
+        private static bool IsValidInput(string input)
+        {
+            return input != null
+                && input.Length != 0
+                && input[0] != '+'
+                && input[0] != '-'
+                && input[input.Length - 1] != '+'
+                && input[input.Length - 1] != '-'
+                && !(input.Contains("i") 
+                && input[input.Length - 1] != 'i')
+                //&& !input.Contains(" ")
+                ;
         }
     }
 }
