@@ -3,7 +3,6 @@
 
 namespace Calculator
 {
-
     public class Complex
     {
         public double Real { get; set; }
@@ -107,7 +106,17 @@ namespace Calculator
             else
                 real = double.Parse(partsOfInput[0]);
 
+            RestoreSigns(ref real, ref imaginary, input);
 
+            result.Real = real;
+            result.Imaginary = imaginary;
+
+
+            return true;
+        }
+
+        private static void RestoreSigns(ref double real, ref double imaginary, string input)
+        {
             if (input.Contains("-"))
             {
                 real = -real; imaginary = -imaginary;
@@ -118,20 +127,15 @@ namespace Calculator
                 if (input[0] != '-')
                     real = -real;
             }
-
-            result = new Complex()
-            { Real = real, Imaginary = imaginary };
-
-            return true;
         }
 
         private static bool IsValid(string input)
         {
-            var partsOfInput = input.Split(new char[] { '+', '-', 'i' }, StringSplitOptions.RemoveEmptyEntries);
+            var partsOfInput = input.Split(new char[] { '+', '-' }, StringSplitOptions.RemoveEmptyEntries);
 
             return (IsValidInput(input)
-                && IsValidNumberOfMarks(input)
-                && IsValidCharacters(input))
+                && IsValidOrderOfSigns(input)
+                && IsValidSymbols(input))
                 && partsOfInput.Length < 3;
         }
 
@@ -141,20 +145,29 @@ namespace Calculator
                 && input[0] != '+'
                 && input[input.Length - 1] != '+'
                 && input[input.Length - 1] != '-'
+
                 && !(input.Contains("i")
                 && input[input.Length - 1] != 'i')
+
+                && input.IndexOf('i') == input.LastIndexOf('i')
+
                 && !input.Contains(" ");
         }
 
-        private static bool IsValidNumberOfMarks(string input)
+        private static bool IsValidOrderOfSigns(string input)
         {
-            //Check number of minuses
-            return input.IndexOf('+') == input.LastIndexOf('+')
-                && input.IndexOf('i') == input.LastIndexOf('i');
+            var partsOfInput = input.Split(new char[] { '+', '-' }, StringSplitOptions.None);
+
+            for (int i = 1; i < partsOfInput.Length; i++)
+                if (string.IsNullOrEmpty(partsOfInput[i]))
+
+                    return false;
+
+
+            return true;
         }
 
-
-        private static bool IsValidCharacters(string input)
+        private static bool IsValidSymbols(string input)
         {
             var PartsOfFraction = input.Split(new char[] { '+', '-', 'i' }, StringSplitOptions.RemoveEmptyEntries);
 

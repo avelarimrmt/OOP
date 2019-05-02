@@ -13,11 +13,11 @@ namespace UnitTestProject
         public void AddNumber()
         {
             var num1 = new Complex { Real = 1, Imaginary = 3 };
-            var num2 = new Complex { Real = 4, Imaginary = -5 };
+            var num2 = new Complex { Real = -4, Imaginary = -5 };
 
             var result = num1.Add(num2);
 
-            Assert.AreEqual(5, result.Real);
+            Assert.AreEqual(-3, result.Real);
             Assert.AreEqual(-2, result.Imaginary);
         }
 
@@ -87,12 +87,12 @@ namespace UnitTestProject
         public void SeveralPluses()
         {
             var num = new Complex();
-            var result = Complex.TryParse("2+3+4i", out num);
+            var result = Complex.TryParse("3+++4i", out num);
             Assert.IsFalse(result);
         }
 
         [TestMethod]
-        public void SeveralValidCharacters()
+        public void SeveralValidSymbols()
         {
             var num = new Complex();
             var result = Complex.TryParse("3i+4i", out num);
@@ -116,15 +116,31 @@ namespace UnitTestProject
         }
 
         [TestMethod]
-        public void SeveralMinuses()
+        public void InvalidSigns1()
         {
             var num = new Complex();
-            var result = Complex.TryParse("--4-5i", out num);
+            var result = Complex.TryParse("--4+5i", out num);
             Assert.IsFalse(result);
         }
 
         [TestMethod]
-        public void SeveralDidgitParts()
+        public void InvalidSigns2()
+        {
+            var num = new Complex();
+            var result = Complex.TryParse("-+7.5i", out num);
+            Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public void InvalidSigns3()
+        {
+            var num = new Complex();
+            var result = Complex.TryParse("-4.6+-7.5i", out num);
+            Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public void SeveralDidgitParts1()
         {
             var num = new Complex();
             var result = Complex.TryParse("34-54+5i", out num);
@@ -132,7 +148,15 @@ namespace UnitTestProject
         }
 
         [TestMethod]
-        public void InvalidCharacters()
+        public void SeveralDidgitParts2()
+        {
+            var num = new Complex();
+            var result = Complex.TryParse("45.7-54.5-i", out num);
+            Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public void InvalidSymbols()
         {
             var num = new Complex();
             var result = Complex.TryParse("34.u+6i", out num);
@@ -166,20 +190,20 @@ namespace UnitTestProject
         public void ToString3()
         {
             var num = new Complex()
-            { Real = 0, Imaginary = -7 };
+            { Real = 0, Imaginary = -7.4 };
 
             var result = num.ToString();
-            Assert.AreEqual("-7i", result);
+            Assert.AreEqual("-7.4i", result);
         }
 
         [TestMethod]
         public void ToString4()
         {
             var num = new Complex()
-            { Real = -8, Imaginary = -7 };
+            { Real = -8.5, Imaginary = -7 };
 
             var result = num.ToString();
-            Assert.AreEqual("-8-7i", result);
+            Assert.AreEqual("-8.5-7i", result);
         }
 
         [TestMethod]
