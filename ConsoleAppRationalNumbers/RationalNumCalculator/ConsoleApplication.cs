@@ -14,7 +14,7 @@ namespace ConsoleApplication
                 string[] separationBySpaces = sourceString.Split(' ');
 
                 if (separationBySpaces.Length != 3)
-                    Console.WriteLine("Incorrect input");
+                    Console.WriteLine("Not enough data");
 
                 else
                 {

@@ -43,55 +43,135 @@ namespace Calculator
         {
             return new Complex();
         }
-        /// Вовзращает строковое представление числа в виде R+Ii, где
-        /// R и I - строковые представления действительной и мнимой части числа
-        /// 'i' - символ, обозначающий мнимую единицу
-        /// Если мнимая или действительная часть числа равны нулю, они опускаются
-        /// и принимают вид
-        /// R (мнимая часть равна 0)
-        /// Ii (действительная часть равна 0)
-        /// если мнимая часть равна 1, множитель перед 'i' опускается: 1+1i => 1 + i
+
+
         public override string ToString()
         {
-            return "";
+            string output;
+
+
+            if (Measure == 0)
+                output = "0";
+
+            else if (Imaginary == 0)
+                output = Real.ToString();
+
+            else if (Real == 0)
+                output = string.Format("{0}i", Imaginary);
+
+            else if (Math.Sign(Imaginary) > 0)
+                output = string.Format("{0}+{1}i", Real, Imaginary);
+
+            else
+                output = string.Format("{0}{1}i", Real, Imaginary);
+
+
+            if (Math.Abs(Imaginary) == 1)
+                output = output.Remove(output.Length - 2, 1);
+
+            return output;
         }
 
-
-        //Считается ли корректным ввод - add 3+3+5i 4
-        //4i+5
-        //3+5i+i
-        
-            //upd: все хуйня
 
         public static bool TryParse(string input, out Complex result)
         {
             result = new Complex();
 
-            return (IsValidInput(input) 
-                && NumberOfValidCharacters(input));
-            
+            if (!IsValid(input))
+                return false;
+
+
+            var partsOfInput = input.Split(new char[] { '+', '-', 'i' }, StringSplitOptions.RemoveEmptyEntries);
+
+            double real = 0, imaginary = 0;
+
+            if (partsOfInput.Length == 2)
+            {
+                real = double.Parse(partsOfInput[0]);
+                imaginary = double.Parse(partsOfInput[1]);
+            }
+
+            else if (input.Contains("i"))
+            {
+                try
+                {
+                    imaginary = double.Parse(partsOfInput[0]);
+                }
+
+                catch (IndexOutOfRangeException)
+                {
+                    imaginary = 1;
+                }
+            }
+
+            else
+                real = double.Parse(partsOfInput[0]);
+
+
+            if (input.Contains("-"))
+            {
+                real = -real; imaginary = -imaginary;
+
+                if (input.Contains("+"))
+                    imaginary = -imaginary;
+
+                if (input[0] != '-')
+                    real = -real;
+            }
+
+            result = new Complex()
+            { Real = real, Imaginary = imaginary };
+
+            return true;
         }
 
-        //rename this method
-        private static bool NumberOfValidCharacters(string input)
+        private static bool IsValid(string input)
         {
-            return input.IndexOf('+') == input.LastIndexOf('+')
-                && input.IndexOf('i') == input.LastIndexOf('i')
-                && input.IndexOf('-') == input.LastIndexOf('-');
+            var partsOfInput = input.Split(new char[] { '+', '-', 'i' }, StringSplitOptions.RemoveEmptyEntries);
+
+            return (IsValidInput(input)
+                && IsValidNumberOfMarks(input)
+                && IsValidCharacters(input))
+                && partsOfInput.Length < 3;
         }
 
         private static bool IsValidInput(string input)
         {
-            return input != null
-                && input.Length != 0
+            return !string.IsNullOrEmpty(input)
                 && input[0] != '+'
-                && input[0] != '-'
                 && input[input.Length - 1] != '+'
                 && input[input.Length - 1] != '-'
-                && !(input.Contains("i") 
+                && !(input.Contains("i")
                 && input[input.Length - 1] != 'i')
-                //&& !input.Contains(" ")
-                ;
+                && !input.Contains(" ");
+        }
+
+        private static bool IsValidNumberOfMarks(string input)
+        {
+            //Check number of minuses
+            return input.IndexOf('+') == input.LastIndexOf('+')
+                && input.IndexOf('i') == input.LastIndexOf('i');
+        }
+
+
+        private static bool IsValidCharacters(string input)
+        {
+            var PartsOfFraction = input.Split(new char[] { '+', '-', 'i' }, StringSplitOptions.RemoveEmptyEntries);
+
+            foreach (string number in PartsOfFraction)
+            {
+                try
+                {
+                    double.Parse(number);
+                }
+
+                catch (FormatException)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }

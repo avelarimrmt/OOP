@@ -6,6 +6,9 @@ namespace UnitTestProject
     [TestClass]
     public class ComplexTest
     {
+
+        //operations
+
         [TestMethod]
         public void AddNumber()
         {
@@ -97,6 +100,122 @@ namespace UnitTestProject
         }
 
         [TestMethod]
+        public void SeveralPoints1()
+        {
+            var num = new Complex();
+            var result = Complex.TryParse("3.6.534.5+5i", out num);
+            Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public void SeveralPoints2()
+        {
+            var num = new Complex();
+            var result = Complex.TryParse(".+5i", out num);
+            Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public void SeveralMinuses()
+        {
+            var num = new Complex();
+            var result = Complex.TryParse("--4-5i", out num);
+            Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public void SeveralDidgitParts()
+        {
+            var num = new Complex();
+            var result = Complex.TryParse("34-54+5i", out num);
+            Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public void InvalidCharacters()
+        {
+            var num = new Complex();
+            var result = Complex.TryParse("34.u+6i", out num);
+            Assert.IsFalse(result);
+        }
+
+
+        //ToString
+
+        [TestMethod]
+        public void ToString1()
+        {
+            var num = new Complex()
+            { Real = 0, Imaginary = 0 };
+
+            var result = num.ToString();
+            Assert.AreEqual("0", result);
+        }
+
+        [TestMethod]
+        public void ToString2()
+        {
+            var num = new Complex()
+            { Real = -8, Imaginary = 0};
+
+            var result = num.ToString();
+            Assert.AreEqual("-8", result);
+        }
+
+        [TestMethod]
+        public void ToString3()
+        {
+            var num = new Complex()
+            { Real = 0, Imaginary = -7 };
+
+            var result = num.ToString();
+            Assert.AreEqual("-7i", result);
+        }
+
+        [TestMethod]
+        public void ToString4()
+        {
+            var num = new Complex()
+            { Real = -8, Imaginary = -7 };
+
+            var result = num.ToString();
+            Assert.AreEqual("-8-7i", result);
+        }
+
+        [TestMethod]
+        public void ToString5()
+        {
+            var num = new Complex()
+            { Real = 8, Imaginary = 7 };
+
+            var result = num.ToString();
+            Assert.AreEqual("8+7i", result);
+        }
+
+        [TestMethod]
+        public void ToString6()
+        {
+            var num = new Complex()
+            { Real = 8, Imaginary = 1 };
+
+            var result = num.ToString();
+            Assert.AreEqual("8+i", result);
+        }
+
+        [TestMethod]
+        public void ToString7()
+        {
+            var num = new Complex()
+            { Real = 0, Imaginary = -1 };
+
+            var result = num.ToString();
+            Assert.AreEqual("-i", result);
+        }
+
+
+        //valid input
+
+        [TestMethod]
         public void CorrectInput1()
         {
             var num = new Complex();
@@ -116,7 +235,7 @@ namespace UnitTestProject
         public void CorrectInput3()
         {
             var num = new Complex();
-            var result = Complex.TryParse("4.8i", out num);
+            var result = Complex.TryParse("-4.8i", out num);
             Assert.IsTrue(result);
         }
 
@@ -128,11 +247,35 @@ namespace UnitTestProject
             Assert.IsTrue(result);
         }
 
+
         [TestMethod]
         public void CorrectInput5()
         {
             var num = new Complex();
             var result = Complex.TryParse("i", out num);
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void CorrectInput6()
+        {
+            var num = new Complex();
+            var result = Complex.TryParse("88,6-5,7i", out num);
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void CorrectInput7()
+        {
+            var num = new Complex();
+            var result = Complex.TryParse("3+i", out num);
+            Assert.IsTrue(result);
+        }
+        [TestMethod]
+        public void CorrectInput8()
+        {
+            var num = new Complex();
+            var result = Complex.TryParse("-9-9i", out num);
             Assert.IsTrue(result);
         }
     }
