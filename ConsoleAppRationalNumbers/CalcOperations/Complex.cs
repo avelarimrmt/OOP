@@ -108,9 +108,8 @@ namespace Calculator
 
             RestoreSigns(ref real, ref imaginary, input);
 
-            result.Real = real;
-            result.Imaginary = imaginary;
 
+            result = new Complex { Real = real, Imaginary = imaginary};
 
             return true;
         }

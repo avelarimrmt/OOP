@@ -36,6 +36,7 @@ namespace ConsoleApplication
                         //ExecuteOperation.Rational(operation, num1, num2);
                         ExecuteOperation.Complex(operation, num1, num2);
                     }
+
                 }
             }
         }
