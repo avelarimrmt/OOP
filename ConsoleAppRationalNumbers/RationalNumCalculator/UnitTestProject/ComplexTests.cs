@@ -46,6 +46,27 @@ namespace UnitTestProject
             Assert.AreEqual(3, result.Imaginary);
         }
 
+        public void MultiplyNumber()
+        {
+            var num1 = new Complex { Real = 3, Imaginary = 1 };
+            var num2 = new Complex { Real = 5, Imaginary = -2 };
+
+            var result = num1.Multiply(num2);
+
+            Assert.AreEqual(17, result.Real);
+            Assert.AreEqual(-1, result.Imaginary);
+        }
+        public void DivideByNumber()
+        {
+            var num1 = new Complex { Real = 5, Imaginary = 3 };
+            var num2 = new Complex { Real = 2, Imaginary = 1 };
+
+            var result = num1.DivideBy(num2);
+
+            Assert.AreEqual(2.6, result.Real);
+            Assert.AreEqual(0.2, result.Imaginary);
+        }
+
 
 
         ///Try Parse

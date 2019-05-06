@@ -35,14 +35,21 @@ namespace Calculator
 
         public Complex Multiply(Complex x)
         {
-            return new Complex();
+            return new Complex()
+            {
+                Real = this.Real * x.Real - this.Imaginary * x.Imaginary,
+                Imaginary = this.Real * x.Imaginary + x.Real * this.Imaginary
+            };
         }
 
         public Complex DivideBy(Complex x)
         {
-            return new Complex();
+            return new Complex()
+            {
+                Real = (this.Real * x.Real + this.Imaginary * x.Imaginary) / (x.Real * x.Real + x.Imaginary * x.Imaginary),
+                Imaginary = (x.Real * this.Imaginary + this.Real * x.Imaginary) / (x.Real * x.Real + x.Imaginary * x.Imaginary)
+            };
         }
-
 
         public override string ToString()
         {
