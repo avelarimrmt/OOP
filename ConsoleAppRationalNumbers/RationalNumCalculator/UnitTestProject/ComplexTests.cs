@@ -45,6 +45,7 @@ namespace UnitTestProject
             Assert.AreEqual(-1, result.Real);
             Assert.AreEqual(3, result.Imaginary);
         }
+        [TestMethod]
 
         public void MultiplyNumber()
         {
@@ -56,6 +57,18 @@ namespace UnitTestProject
             Assert.AreEqual(17, result.Real);
             Assert.AreEqual(-1, result.Imaginary);
         }
+        [TestMethod]
+        public void MultiplyNumber2()
+        {
+            var num1 = new Complex { Real = 4, Imaginary = 5 };
+            var num2 = new Complex { Real = 1, Imaginary = 5 };
+
+            var result = num1.Multiply(num2);
+
+            Assert.AreEqual(-21, result.Real);
+            Assert.AreEqual(25, result.Imaginary);
+        }
+        [TestMethod]
         public void DivideByNumber()
         {
             var num1 = new Complex { Real = 5, Imaginary = 3 };
@@ -183,7 +196,13 @@ namespace UnitTestProject
             var result = Complex.TryParse("34.u+6i", out num);
             Assert.IsFalse(result);
         }
-
+        [TestMethod]
+        public void SuccessTryParse()
+        {
+            var num = new Complex();
+            var result = Complex.TryParse("34+6i", out num);
+            Assert.IsTrue(result);
+        }
 
         //ToString
 

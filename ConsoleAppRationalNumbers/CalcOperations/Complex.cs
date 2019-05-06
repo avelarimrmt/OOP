@@ -47,7 +47,7 @@ namespace Calculator
             return new Complex()
             {
                 Real = (this.Real * x.Real + this.Imaginary * x.Imaginary) / (x.Real * x.Real + x.Imaginary * x.Imaginary),
-                Imaginary = (x.Real * this.Imaginary + this.Real * x.Imaginary) / (x.Real * x.Real + x.Imaginary * x.Imaginary)
+                Imaginary = (x.Real * this.Imaginary - this.Real * x.Imaginary) / (x.Real * x.Real + x.Imaginary * x.Imaginary)
             };
         }
 
