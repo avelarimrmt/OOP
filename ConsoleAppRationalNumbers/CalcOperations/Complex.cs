@@ -50,7 +50,6 @@ namespace Calculator
                 Imaginary = (x.Real * this.Imaginary - this.Real * x.Imaginary) / (x.Real * x.Real + x.Imaginary * x.Imaginary)
             };
         }
-
         public override string ToString()
         {
             string output;
@@ -168,7 +167,6 @@ namespace Calculator
                 if (string.IsNullOrEmpty(partsOfInput[i]))
 
                     return false;
-
 
             return true;
         }

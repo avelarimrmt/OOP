@@ -233,7 +233,7 @@ namespace UnitTestProject
             { Real = 0, Imaginary = -7.4 };
 
             var result = num.ToString();
-            Assert.AreEqual("-7.4i", result);
+            Assert.AreEqual("-7,4i", result);
         }
 
         [TestMethod]
@@ -243,7 +243,7 @@ namespace UnitTestProject
             { Real = -8.5, Imaginary = -7 };
 
             var result = num.ToString();
-            Assert.AreEqual("-8.5-7i", result);
+            Assert.AreEqual("-8,5-7i", result);
         }
 
         [TestMethod]
@@ -299,7 +299,7 @@ namespace UnitTestProject
         public void CorrectInput3()
         {
             var num = new Complex();
-            var result = Complex.TryParse("-4.8i", out num);
+            var result = Complex.TryParse("-4,8i", out num);
             Assert.IsTrue(result);
         }
 
@@ -307,7 +307,7 @@ namespace UnitTestProject
         public void CorrectInput4()
         {
             var num = new Complex();
-            var result = Complex.TryParse("88-5.7i", out num);
+            var result = Complex.TryParse("88-5,7i", out num);
             Assert.IsTrue(result);
         }
 
